@@ -2,16 +2,23 @@
 
 ## Getting started
 
-`$ npm install react-native-content-provider --save`
-
-### Mostly automatic installation
-
-`$ react-native link react-native-content-provider`
+`$ npm install git+https://github.com/Tebogo-Legodi/react-native-content-provider.git --save`
 
 ## Usage
 ```javascript
 import ContentProvider from 'react-native-content-provider';
 
 // TODO: What to do with the module?
-ContentProvider;
+const getContent = async ()=>{
+    const contentProviderUrl = 'content://BluContentProvider/device';
+    const exists = await ContentProvider.getData(bludroidUri);
+    
+    if(exists){
+      const data = JSON.parse(exists);
+      alert(JSON.stringify(data));
+    }
+    else{
+      alert('does not exist');
+    }
+  }
 ```
